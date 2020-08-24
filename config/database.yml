@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: bird_cafe_production
-  username: bird_cafe
+  username: <%= ENV['BIRDCAFE_USERNAME'] %>
   password: <%= ENV['BIRD_CAFE_DATABASE_PASSWORD'] %>
