@@ -1,46 +1,3 @@
-<div class="new">
-  <div class="posts_top">
-    <p>投稿する</p>
-  </div>
-
-  <% @item.errors.full_messages.each do |message| %>
-      <div class="form-error">
-        <%= message %>
-      </div>
-  <% end %>
-            
-  <div class="new_container">
-    <%= form_tag("/item/create") do %>
-
-    <p class="midashi">商品名</p>
-    <input type="text" class="form-control" name="name" value="<%= @item.name %>">
-
-    <p class="midashi">AmazonのURL</p>
-    <input type="text" class="form-control" name="url" value="<%= @item.url %>">
-
-    <p class="midashi">ISBN/ASINコード</p>
-    <input type="text" class="form-control" name="code" value="<%= @item.code %>">
-
-    <div class="hosoku">
-      <p>※Amazonページの下部の登録情報に記載されているコードを入力して下さい。書籍はISBNコード、書籍以外はASINコードです。</p>
-    </div>
-
-    <p class="midashi">コメント</p>
-      <textarea class="form-control" rows="5" name="description"><%= @item.description %></textarea>
-
-      <button type="submit" class="btn btn-primary submit_btn">投稿</button>
-      <% end %>
-  </div>
-
-  <div class="return-top">
-    <%= link_to("トップに戻る","/items/index") %>
-  </div>
-</div>
-
-
-
-------------------------------------------------------
-
 .new {
   max-width: 600px;
   margin: 0 auto;
@@ -126,12 +83,10 @@ textarea.form-control {
 
 
 .return-top{
+  margin-left: 20px;
+  margin-bottom: 30px;
   text-decoration: none;
   width: 560px;
-  margin-top: 20px;
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -144,4 +99,8 @@ textarea.form-control {
   line-height: 1.5;
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-top: 20px;
+  color: #fff;
+  background-color: gray;
+  border-color: #007bff;
 }
