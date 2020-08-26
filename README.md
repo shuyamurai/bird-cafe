@@ -1,44 +1,66 @@
-<div class="show">
-
-  <div class="show-image">
-    <img src="http://images-jp.amazon.com/images/P/<%= @item.code %>.09.LZZZZZZZ">
-  </div>
-  <div class="book-title-show">
-    <p><%= @item.name %></p>
-  </div>
-  <div class="buy">
-    <a href="<%= @item.url %>" class="btn-stitch" target=”_blank”>購入ページへ</a>
-  </div>
-  <div class="post-user flex space">
-    <p class="bold"><%= @item.name %></p>
-    <p class="post-time"><%= @item.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-  </div>
-  <div class="post-message">
-    <p><%= @item.description %></p>
-  </div>
-
-            
-
-  <div class="twitter-link">
-    <%= link_to("#{@item.name}","/users/#{@item.id}/show") %>さんの投稿一覧を見る
-  </div>
-
-
-  <% if user_signed_in? && current_user.id == @item.user_id %>
-    <%= link_to '商品の編集',  class: "item-red-btn" %>
-    <p class='or-text'>or</p>
-    <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
-  <% else @items_id.present?%>
-    <%= link_to '購入画面に進む',  item_orders_path(@item), method: :get ,class:"item-red-btn"%>
-  <% end %>
-            
+class ItemsController < ApplicationController
+  before_action :set_item, only: [:edit, :update, :destroy]
 
 
 
-            
-  <div class="return-top">
-    <%= link_to("トップに戻る","/item/index") %>
-  </div>
+  def index
+    @items = Item.all.order('created_at DESC')
+  end
+
+  def new
+    @item = Item.new
+  end
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      flash[:notice] = "投稿しました"
+      redirect_to root_path
+    else
+      render 'new'
+    end
+  end
+
+  def show
+    @item = Item.find(params[:id])
+  end
+
+  def edit
+    redirect_to root_path unless user_signed_in? && current_user.id == @item.user_id
+  end
+
+  def update
+    if @item.update(item_params)
+      flash[:notice] = "編集しました"
+      redirect_to item_path(@item.id)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @item.destroy
+      flash[:notice] = "削除しました"
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
 
 
-</div>
+ 
+
+
+  private
+  def item_params
+    params.require(:item).permit(:name, :url, :code, :description).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+
+
+
+end
