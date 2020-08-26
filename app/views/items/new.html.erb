@@ -1,0 +1,35 @@
+<div class="new">
+  <div class="posts_top">
+    <p>投稿する</p>
+  </div>
+
+        
+  <div class="new_container">
+    <%= form_with model: @item, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <p class="midashi">商品名</p>
+    <%= f.text_field :name, class:"form-control" %>
+
+    <p class="midashi">AmazonのURL</p>
+    <%= f.text_field :url, class:"form-control" %>
+
+    <p class="midashi">ASIN/ISBNコード</p>
+    <%= f.text_field :code, class:"form-control" %>
+
+    <div class="hosoku">
+      <p>※Amazonページの下部の登録情報に記載されているコードを入力して下さい。書籍はISBNコード、書籍以外はASINコードです。</p>
+    </div>
+
+    <p class="midashi">商品の紹介文</p>
+      
+      <%= f.text_area :description, class:"form-control" %>
+      
+      <%= f.submit "投稿" ,class:"btn btn-primary submit_btn" %>
+      <% end %>
+  </div>
+
+    <%=link_to 'トップページへもどる', root_path, class:"return-top" %>
+
+</div>

@@ -1,2 +1,50 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<div class="top-comment">
+  <div class="ribbon13-wrapper">
+  <div class="ribbon13">
+  <h3>Welcome to Tori Life!</h3>
+  </div>
+  <p>おすすめ鳥グッズを共有しよう！</p>
+</div>
+
+  <div class="box14">
+    <p>かわいい鳥グッズ<br>勉強になる鳥の教科書<br>漫画・写真集<br>取りに関するものならなんでもOK！</p>
+  </div>
+
+  <div class="btn-flat-dashed-filled">
+    <%= link_to("オススメの鳥グッズを投稿","/items/new") %>
+  </div>
+</div>
+
+<div class="container">
+  <ul class='item-lists'>
+    <% @items.each do |item| %>
+      <li class='list-groupe'>
+          <%= link_to("/items/#{item.id}") do %>
+          <div class="main-contents">
+            <div class="main-image">
+                <img src="http://images-jp.amazon.com/images/P/<%= item[:code] %>.09.LZZZZZZZ">
+            </div>
+            <div class="content-wrapper">
+              <div class="title">
+                <p><%= link_to(item.name,"/items/#{item.id}") %></p>
+              </div>
+              <div class="main-message">
+                  <%= item[:description] %>
+              </div>
+
+              
+              <div class="left-container">
+                  <%= link_to("/items/#{item.id}") do %>
+                      <span class="fa fa-heart like_button"></span>：
+                  <% end %>
+              </div>
+              <div class="right-container">                 
+                  <div class="main-user"><%= item.user.name %></div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
