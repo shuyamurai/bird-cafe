@@ -51,4 +51,8 @@
   </ul>
 </div>
 
+<% if user_signed_in? %>
+<%= render "likes/like" %>
+<% end %>
+
 <%= render "shared/footer" %>

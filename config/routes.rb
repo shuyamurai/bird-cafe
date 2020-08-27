@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root "items#index"
   resources :users, only: [:edit, :update]
   resources :items
+    resources :likes, only: [:create, :destroy]
 end
