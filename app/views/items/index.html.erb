@@ -1,3 +1,5 @@
+<%= render "shared/header" %>
+
 <div class="top-comment">
   <div class="ribbon13-wrapper">
   <div class="ribbon13">
@@ -7,13 +9,12 @@
 </div>
 
   <div class="box14">
-    <p>かわいい鳥グッズ<br>勉強になる鳥の教科書<br>漫画・写真集<br>取りに関するものならなんでもOK！</p>
+    <p>かわいい鳥グッズ<br>勉強になる鳥の教科書<br>漫画・写真集<br>鳥に関するものならなんでもOK！</p>
   </div>
 
   <div class="btn-flat-dashed-filled">
     <%= link_to("オススメの鳥グッズを投稿","/items/new") %>
   </div>
-</div>
 
 <div class="container">
   <ul class='item-lists'>
@@ -29,7 +30,8 @@
                 <p><%= link_to(item.name,"/items/#{item.id}") %></p>
               </div>
               <div class="main-message">
-                  <%= item[:description] %>
+                <span class="box-title">紹介文</span>
+                <p><%= item[:description] %></p>
               </div>
 
               
@@ -48,3 +50,5 @@
     <% end %>
   </ul>
 </div>
+
+<%= render "shared/footer" %>
