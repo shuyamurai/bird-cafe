@@ -35,11 +35,9 @@
               </div>
 
               
-              <div class="left-container">
-                  <%= link_to("/items/#{item.id}") do %>
-                      <span class="fa fa-heart like_button"></span>：
-                  <% end %>
-              </div>
+              <% if user_signed_in? %>
+              <%= render "likes/like" %>
+              <% end %>
               <div class="right-container">                 
                   <div class="main-user"><%= item.user.name %></div>
               </div>
@@ -51,8 +49,6 @@
   </ul>
 </div>
 
-<% if user_signed_in? %>
-<%= render "likes/like" %>
-<% end %>
+
 
 <%= render "shared/footer" %>

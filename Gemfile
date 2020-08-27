@@ -58,3 +58,5 @@ gem 'devise'
 gem 'font-awesome-sass'
 
 gem 'rails-i18n'
+
+gem 'jquery-rails'
