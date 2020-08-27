@@ -205,3 +205,11 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  attributes:
+    user:
+        name: 名前
+    item:
+        Name: 名前
+        Url: AmazonのURL
+        Code: ASIN/ISBNコード
+        Description: 商品の紹介文
