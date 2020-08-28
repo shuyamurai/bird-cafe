@@ -38,8 +38,10 @@
               <% if user_signed_in? %>
               <%= render "likes/like" %>
               <% end %>
-              <div class="right-container">                 
-                  <div class="main-user"><%= item.user.name %></div>
+              
+              <div class="right-container"> 
+                <span class="box-title">投稿者</span>                
+                <p><%= item.user.name %><p>
               </div>
             </div>
           </div>
