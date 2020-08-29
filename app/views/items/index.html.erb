@@ -36,7 +36,7 @@
 
               
               <% if user_signed_in? %>
-              <%= render "likes/like" %>
+              <%= render partial: "likes/like", locals: { item: item } %>
               <% end %>
               
               <div class="right-container"> 
