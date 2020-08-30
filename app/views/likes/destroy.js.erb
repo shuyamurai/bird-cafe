@@ -1,2 +1,2 @@
-$("#like_<%= @item.id %>").html("<%= j(render 'likes/like') %>");
+$("#like_<%= @item.id %>").html("<%= j(render 'likes/like', item: @item) %>");
 

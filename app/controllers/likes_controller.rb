@@ -18,22 +18,26 @@
 
 
 class LikesController < ApplicationController
+  # 受け取ったパラメータのitem_idから商品インスタンスを作成(全てのアクションの前に実行)
   before_action :set_item
+  # ログインしているかどうかを確認(全てのアクションの前に実行)
+  before_action :authenticate_user!
 
   def create
+    # ユーザーに紐づけられたLikeを作成しDBに保存
     @like = Like.create(user_id: current_user.id, item_id: @item.id)
-    @likes = Like.where(like_id: @item.id)
   end
 
   def destroy
+    # ユーザーに紐づけられたLikeを取得
     @like = current_user.likes.find_by(item_id: @item.id)
-    @like.destroy
-    @likes = Like.where(like_id: @item.id)
+    # 取得したLikeを削除
+    @like.destroy if @like.present?
   end
 
   private
   def set_item
-    @item = Item.find(params[:items_id])
+    @item = Item.find(params[:item_id])
   end
 end
 
