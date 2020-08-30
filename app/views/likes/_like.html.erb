@@ -1,0 +1,13 @@
+<%#ユーザーがこの投稿に対して行っているLikeを取得、存在すればifの中に、存在しなければelseの中に進む %>
+<% if like=Like.find_by(user_id: current_user.id, item_id: item.id) %> <%#Likeの取得と同時にlike変数にそのインスタンスを入れてあげる。下の行で使用するため。 %>
+  <%= link_to "/items/#{item.id}/likes/#{like.id}", method: :delete, class:"element", remote: true do %>
+    <%= icon("fas", "heart", class: "like") %>
+  <% end %>
+<% else %>
+  <%= link_to "/items/#{item.id}/likes", method: :post, class:"element", remote: true do %>
+    <%= icon("fas", "heart", class: "unlike") %>
+  <% end %>
+<% end %>
+<div class="count">
+  <%= item.likes.count %>
+</div>

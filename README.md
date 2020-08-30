@@ -1,66 +1,29 @@
-class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update, :destroy]
+<% if Like.find_by(user_id: current_user.id, item_id: @item.id) %>
+  <%= link_to "/items/#{@item.id}/likes/#{@item.likes.ids}", method: :delete, class:"element", remote: true do %>
+    <%= icon("fas", "heart", class: "like") %>
+  <% end %>
+<% else %>
+  <%= link_to "/items/#{@item.id}/likes", method: :post, class:"element", remote: true do %>
+    <%= icon("fas", "heart", class: "unlike") %>
+  <% end %>
+<% end %>
+<div class="count">
+  <%= @item.likes.length %>
 
 
 
-  def index
-    @items = Item.all.order('created_at DESC')
-  end
-
-  def new
-    @item = Item.new
-  end
-
-  def create
-    @item = Item.new(item_params)
-    if @item.save
-      flash[:notice] = "投稿しました"
-      redirect_to root_path
-    else
-      render 'new'
-    end
-  end
-
-  def show
-    @item = Item.find(params[:id])
-  end
-
-  def edit
-    redirect_to root_path unless user_signed_in? && current_user.id == @item.user_id
-  end
-
-  def update
-    if @item.update(item_params)
-      flash[:notice] = "編集しました"
-      redirect_to item_path(@item.id)
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    if @item.destroy
-      flash[:notice] = "削除しました"
-      redirect_to root_path
-    else
-      render :show
-    end
-  end
+  ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 
 
- 
+  <% if Like.find_by(user_id: current_user.id, item_id: @item) %>
+  <%= link_to "/items/#{@item}/likes/#{@item}", method: :delete, class:"element", remote: true do %>
+    <%= icon("fas", "heart", class: "like") %>
+  <% end %>
+<% else %>
+  <%= link_to "/items/#{@item}/likes", method: :post, class:"element", remote: true do %>
+    <%= icon("fas", "heart", class: "unlike") %>
+  <% end %>
+<% end %>
+<div class="count">
 
 
-  private
-  def item_params
-    params.require(:item).permit(:name, :url, :code, :description).merge(user_id: current_user.id)
-  end
-
-  def set_item
-    @item = Item.find(params[:id])
-  end
-
-
-
-
-end
