@@ -65,7 +65,9 @@
   <div class="container">
     <% if current_user %>
       <%= form_with(model: [@item, @comment], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.text_area :comment, placeholder: "コメントする", rows: "2" %>
+        <%= form.hidden_field :item_id, :value => @item.id %>
+        <%= form.hidden_field :user_id, :value => current_user.id %>
         <%= form.submit "SEND" %>
       <% end %>
     <% else %>
