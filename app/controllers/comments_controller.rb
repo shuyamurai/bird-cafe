@@ -3,9 +3,11 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     if comment.save
-      redirect_to "/"
+      redirect_to "/items/#{comment.item.id}" 
+      flash[:notice] = "コメントを投稿しました"
     else
-      asdf
+      redirect_to "/items/#{comment.item.id}"
+      flash[:notice] = "コメントを入力してください"
     end
   end
 
