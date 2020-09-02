@@ -1,0 +1,41 @@
+<%= form_with(url: search_items_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+<div class="contents row">
+  <% @items.each do |item| %>
+    <li class='list-groupe'>
+          <%= link_to("/items/#{item.id}") do %>
+          <div class="main-contents">
+            <div class="main-image">
+                <img src="http://images-jp.amazon.com/images/P/<%= item[:code] %>.09.LZZZZZZZ">
+            </div>
+            <div class="content-wrapper">
+              <div class="title">
+                <p><%= link_to(item.name,"/items/#{item.id}") %></p>
+              </div>
+              <div class="main-message">
+                <span class="box-title">紹介文</span>
+                <p><%= item[:description] %></p>
+              </div>
+
+              
+              <% if user_signed_in? %>
+                
+                <div id="like_<%=item.id%>">
+                  <%= render partial: "likes/like", locals: { item: item } %>
+                </div>
+              <% end %>
+              
+              <div class="right-container"> 
+                <span class="box-title">投稿者</span>                
+                <p><%= item.user.name %></p>
+              </div>
+            </div>
+          </div>
+          <% end %>
+      </li>
+  <% end %>
+</div>
+
+

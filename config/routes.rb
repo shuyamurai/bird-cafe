@@ -7,5 +7,8 @@ Rails.application.routes.draw do
     resources :comments, only: :create
     # likesのパスをitemsの中に入れ子としてやることで、/item/1/likes/2のようなパスを作ることができる。
     resources :likes, only: [:create, :destroy]
+    collection do
+      get 'search'
+    end
   end
 end
