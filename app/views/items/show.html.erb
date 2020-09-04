@@ -22,12 +22,17 @@
   <div class="show-image">
     <img src="http://images-jp.amazon.com/images/P/<%= @item.code %>.09.LZZZZZZZ">
   </div>
-  <% if user_signed_in? %>
-                <%#idに「like_アイテムのid」として出力することで、create.js.erbやdestroy.js.erbでidを指定したコードを実行することができる。%>
-    <div id="like_<%=@item.id%>">
-    <%= render partial: "likes/like", locals: { item: @item } %>
-    </div>
-  <% end %>
+
+
+  <div class="main-message-show">
+  <span class="box-title">いいね</span>
+    <% if user_signed_in? %>
+      <div id="like_<%=@item.id%>">
+      <%= render partial: "likes/like", locals: { item: @item } %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="title-show">
     <p>商品名：<%= @item.name %></p>
   </div>
@@ -63,7 +68,7 @@
 
 </div>
 
-  <div class="container">
+  <div class="container-show">
     <% if current_user %>
       <%= form_with(model: [@item, @comment], local: true) do |form| %>
         <%= render 'shared/error_messages', model: form.object %>
@@ -88,5 +93,6 @@
         <% end %>
       <% end %>
     </div>
+  </div>
 
 <%= render "shared/footer" %>
