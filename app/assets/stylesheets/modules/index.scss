@@ -194,7 +194,7 @@ img {
 
 .count{
   float: right;
-  margin-right: 200px;
+  margin-right: 190px;
 }
 
 .right-container{
@@ -268,10 +268,7 @@ img {
   color: #4ec4d3;
 }
 
-.okame-icon{
-  width: 100px;
-  height: 100px;
-}
+
 
 .box10 {
     padding: 0.5em 1em;
@@ -295,46 +292,4 @@ img {
 
 
 
-
-
-
-// 以下レスポンシブ用のコード
-img{
-  max-width: 100%;
-  height: auto;
-}
-
-@media (max-width:767px){
-  .top-comment{
-    margin: 0 8px;
-  }
-
-  
-  form input,
-  form textarea {
-    width: 100%;
-    margin: 5px 0 15px;
-    padding: 10px;
-    border: 1px solid #D8D8D8;
-    border-radius: 5px;
-    font-family: "游ゴシック", "YuGothic";
-  }
-  
-  form input[type="submit"] {
-    background-color: #57C3E9;
-    border-radius: 20px;
-    color: #fff;
-    border: 0;
-    font-size: 18px;
-  }
-  
-  form input[type="submit"]:hover {
-    background-color: #84d3ef;
-  }
-
-
-
-
-
-}
 
