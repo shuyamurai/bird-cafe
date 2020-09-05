@@ -1,10 +1,15 @@
-<%= form_with(url: search_items_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
-<div class="contents row">
-  <% @items.each do |item| %>
-    <li class='list-groupe'>
+<%= render "shared/header" %>
+
+<div class="box10">
+    <p>検索結果！<br>
+    「インコ」「鳥かご」「キーホルダー」etc.<br>気になる単語で検索！</p>
+</div>
+
+
+<div class="container">
+  <ul class='item-lists'>
+    <% @items.each do |item| %>
+      <li class='list-groupe'>
           <%= link_to("/items/#{item.id}") do %>
           <div class="main-contents">
             <div class="main-image">
@@ -19,13 +24,14 @@
                 <p><%= item[:description] %></p>
               </div>
 
-              
-              <% if user_signed_in? %>
-                
-                <div id="like_<%=item.id%>">
-                  <%= render partial: "likes/like", locals: { item: item } %>
-                </div>
-              <% end %>
+              <div class="main-message">
+              <span class="box-title">いいね</span>
+                <% if user_signed_in? %>
+                  <div id="like_<%=item.id%>">
+                    <%= render partial: "likes/like", locals: { item: item } %>
+                  </div>
+                <% end %>
+              </div>
               
               <div class="right-container"> 
                 <span class="box-title">投稿者</span>                
@@ -35,7 +41,8 @@
           </div>
           <% end %>
       </li>
-  <% end %>
+    <% end %>
+  </ul>
 </div>
 
-
+<%= render "shared/footer" %>

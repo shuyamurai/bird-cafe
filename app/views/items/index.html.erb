@@ -12,9 +12,21 @@
     <p>かわいい鳥グッズ<br>勉強になる鳥の教科書<br>漫画・写真集<br>鳥に関するものならなんでもOK！</p>
   </div>
 
+
   <div class="btn-flat-dashed-filled">
     <%= link_to("オススメの鳥グッズを投稿","/items/new") %>
   </div>
+
+
+  <div class="box26">
+  <span class="box-title"><i class="fas fa-crown"></i>いいねランキング</span>
+    <p>
+    <% @all_ranks.each.with_index(1) do |item, i| %> 
+      <p>第<%= i %>位：<%= link_to(item.name,"/items/#{item.id}") %></p>
+    <% end %>
+    </p>
+  </div>
+
 
 <div class="container">
   <ul class='item-lists'>
@@ -34,13 +46,21 @@
                 <p><%= item[:description] %></p>
               </div>
 
+
+
+
+              <div class="main-message">
+              <span class="box-title">いいね</span>
+                <% if user_signed_in? %>
+                  <%#idに「like_アイテムのid」として出力することで、create.js.erbやdestroy.js.erbでidを指定したコードを実行することができる。%>
+                  <div id="like_<%=item.id%>">
+                    <%= render partial: "likes/like", locals: { item: item } %>
+                  </div>
+                <% end %>
+              </div>
+
+
               
-              <% if user_signed_in? %>
-                <%#idに「like_アイテムのid」として出力することで、create.js.erbやdestroy.js.erbでidを指定したコードを実行することができる。%>
-                <div id="like_<%=item.id%>">
-                  <%= render partial: "likes/like", locals: { item: item } %>
-                </div>
-              <% end %>
               
               <div class="right-container"> 
                 <span class="box-title">投稿者</span>                
@@ -54,10 +74,7 @@
   </ul>
 </div>
 
-<% @all_ranks.each.with_index(1) do |item, i| %> 
-  <p>第<%= i %>位</p>
-  <p><%= link_to(item.name,"/items/#{item.id}") %></p>
-<% end %>
+
 
 
 <%= render "shared/footer" %>

@@ -82,6 +82,7 @@
   background: #f2fcff;
   border-radius: 3px;
   transition: .4s;
+  margin: 20px auto;
 }
 
 .btn-flat-dashed-filled:hover {
@@ -103,11 +104,14 @@
 
 
 
+
+
+
 .item-lists {
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
-  margin: 20px 80px 20px 80px;
+ 
 }
 
 .list-groupe{
@@ -119,7 +123,7 @@
 .main-contents{
   border: 1px solid gray;
   margin-top: 20px;
-  height: 750px;
+  height: 900px;
 }
 
 .main-image img{
@@ -139,7 +143,7 @@ img {
   text-align: left;
 }
 
-a {
+.title a{
   color: #007bff;
   text-decoration: none;
   background-color: transparent;
@@ -156,7 +160,7 @@ a {
   
 }
 
-p {
+.title p{
   margin-top: 0;
   margin-bottom: 1rem;
   padding: 0;
@@ -188,6 +192,11 @@ p {
   padding: 0;
 }
 
+.count{
+  float: right;
+  margin-right: 190px;
+}
+
 .right-container{
   position: relative;
   margin: 2em 0;
@@ -214,16 +223,73 @@ p {
   padding: 0;
 }
 
-// .left-container{
-//   float: left;
-//   margin-top: 20px;
-// }
+.box5 {
+  
+  width: 500px;
+  padding: 0.5em 1em;
+  margin: 20px auto;
+  border: double 5px #4ec4d3;
+}
+.box5 p {
+  margin: 0; 
+  padding: 0;
+}
 
-// .right-container{
-//   float: right;
-//   display: flex;
-//   align-items: center;
-//   margin-top: 20px;
-//   font-size: 14px;
-// }
+
+.box26 {
+  position: relative;
+  margin: 20px auto;
+  padding: 0.5em 1em;
+  border: solid 3px #95ccff;
+  border-radius: 8px;
+  width: 600px;
+  text-align: left;
+}
+.box26 .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 19px;
+  background: #FFF;
+  color: #95ccff;
+  font-weight: bold;
+}
+.box26 p {
+  margin: 0; 
+  padding: 10px 0;
+  color: #4ec4d3;
+}
+
+.box26 a {
+  
+  color: #4ec4d3;
+}
+
+
+
+.box10 {
+    padding: 0.5em 1em;
+    margin: 30px auto;
+    color: #00BCD4;
+    background: #e4fcff;/*背景色*/
+    border-top: solid 6px #1dc1d6;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+    width: 400px;
+    height: 100px;
+    
+}
+.box10 p {
+    margin: q; 
+    padding: 0;
+    text-align: center;
+    
+}
+
+
+
+
+
 
