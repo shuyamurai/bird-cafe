@@ -68,31 +68,40 @@
 
 </div>
 
-  <div class="container-show">
-    <% if current_user %>
-      <%= form_with(model: [@item, @comment], local: true) do |form| %>
-        <%= render 'shared/error_messages', model: form.object %>
-        <%= form.text_area :comment, placeholder: "コメントする", rows: "2" %>
-        <%= form.hidden_field :item_id, :value => @item.id %>
-        <%= form.hidden_field :user_id, :value => current_user.id %>
-        <%= form.submit "SEND" %>
-      <% end %>
-    <% else %>
-      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
-      </strong>
-    <% end %>
-    <div class="comments">
-      <h4>＜コメント一覧＞</h4>
-      <% if @comments %>
-        <% @comments.each do |comment| %>
-          <p>
-            
-            <%= comment.user.name %>：
-            <%= comment.comment %>
-          </p>
+<div class="container">
+  <div class="row">
+  
+
+      <div class="container-show">
+        <% if current_user %>
+          <%= form_with(model: [@item, @comment], local: true) do |form| %>
+            <%= render 'shared/error_messages', model: form.object %>
+            <%= form.text_area :comment, placeholder: "コメントする", rows: "2" %>
+            <%= form.hidden_field :item_id, :value => @item.id %>
+            <%= form.hidden_field :user_id, :value => current_user.id %>
+            <%= form.submit "SEND" %>
+          <% end %>
+        <% else %>
+          <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+          </strong>
         <% end %>
-      <% end %>
-    </div>
+        <div class="comments">
+          <h4>＜コメント一覧＞</h4>
+          <% if @comments %>
+            <% @comments.each do |comment| %>
+              <p>
+                
+                <%= comment.user.name %>：
+                <%= comment.comment %>
+              </p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
   </div>
+</div>
+
+
+
 
 <%= render "shared/footer" %>

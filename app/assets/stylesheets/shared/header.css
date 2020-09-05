@@ -113,3 +113,28 @@
 }
 
 
+@media  (max-width:767px){
+
+  .search-form-header{
+    width: 100%;
+  }
+  .search-input-header{
+    width: 150px;
+  }
+  
+  .search-btn-header{
+    width: 60%;
+  }
+
+  .toricafe-icon{
+    width: 80px;
+  }
+
+  .nav li{
+    font-size: 10px;
+    
+  }
+
+
+
+}

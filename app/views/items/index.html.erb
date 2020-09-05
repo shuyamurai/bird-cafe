@@ -17,61 +17,71 @@
     <%= link_to("オススメの鳥グッズを投稿","/items/new") %>
   </div>
 
-
-  <div class="box26">
-  <span class="box-title"><i class="fas fa-crown"></i>いいねランキング</span>
-    <p>
-    <% @all_ranks.each.with_index(1) do |item, i| %> 
-      <p>第<%= i %>位：<%= link_to(item.name,"/items/#{item.id}") %></p>
-    <% end %>
-    </p>
+<div class="container">
+  <div class="row">
+  
+      <div class="box26">
+      <div class="col-lg-12 col-xs-12">
+      <span class="box-title"><i class="fas fa-crown"></i>いいねランキング</span>
+        <p>
+        <% @all_ranks.each.with_index(1) do |item, i| %> 
+          <p>第<%= i %>位：<%= link_to(item.name,"/items/#{item.id}") %></p>
+        <% end %>
+        </p>
+      </div>
+    </div>
   </div>
+</div>
 
 
 <div class="container">
-  <ul class='item-lists'>
-    <% @items.each do |item| %>
-      <li class='list-groupe'>
-          <%= link_to("/items/#{item.id}") do %>
-          <div class="main-contents">
-            <div class="main-image">
-                <img src="http://images-jp.amazon.com/images/P/<%= item[:code] %>.09.LZZZZZZZ">
+  <div class="row">
+    <ul class='item-lists'>
+      <% @items.each do |item| %>
+      <div class="col-lg-4 col-xs-12">
+        <li class='list-groupe'>
+            <%= link_to("/items/#{item.id}") do %>
+            <div class="main-contents">
+              <div class="main-image">
+                  <img src="http://images-jp.amazon.com/images/P/<%= item[:code] %>.09.LZZZZZZZ">
+              </div>
+              <div class="content-wrapper">
+                <div class="title">
+                  <p><%= link_to(item.name,"/items/#{item.id}") %></p>
+                </div>
+                <div class="main-message">
+                  <span class="box-title">紹介文</span>
+                  <p><%= item[:description] %></p>
+                </div>
+
+
+
+
+                <div class="main-message">
+                <span class="box-title">いいね</span>
+                  <% if user_signed_in? %>
+                    <%#idに「like_アイテムのid」として出力することで、create.js.erbやdestroy.js.erbでidを指定したコードを実行することができる。%>
+                    <div id="like_<%=item.id%>">
+                      <%= render partial: "likes/like", locals: { item: item } %>
+                    </div>
+                  <% end %>
+                </div>
+
+
+                
+                
+                <div class="right-container"> 
+                  <span class="box-title">投稿者</span>                
+                  <p><%= item.user.name %></p>
+                </div>
+              </div>
             </div>
-            <div class="content-wrapper">
-              <div class="title">
-                <p><%= link_to(item.name,"/items/#{item.id}") %></p>
-              </div>
-              <div class="main-message">
-                <span class="box-title">紹介文</span>
-                <p><%= item[:description] %></p>
-              </div>
-
-
-
-
-              <div class="main-message">
-              <span class="box-title">いいね</span>
-                <% if user_signed_in? %>
-                  <%#idに「like_アイテムのid」として出力することで、create.js.erbやdestroy.js.erbでidを指定したコードを実行することができる。%>
-                  <div id="like_<%=item.id%>">
-                    <%= render partial: "likes/like", locals: { item: item } %>
-                  </div>
-                <% end %>
-              </div>
-
-
-              
-              
-              <div class="right-container"> 
-                <span class="box-title">投稿者</span>                
-                <p><%= item.user.name %></p>
-              </div>
-            </div>
-          </div>
-          <% end %>
-      </li>
-    <% end %>
-  </ul>
+            <% end %>
+        </li>
+      </div>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 
