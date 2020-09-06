@@ -5,7 +5,7 @@
 
 .top-page-header {
   width: 100%;
-  padding: 2vh 15vw;
+  
   display: flex;
   flex-direction: column;
   background-color:#cbedff;
@@ -101,7 +101,7 @@
   }
 
   .toricafe-icon{
-    width: 80px;
+    width: 120px;
   }
 
   .nav li{
@@ -113,5 +113,8 @@
     height: 120px;
   }
 
+  .top-page-header{
+    padding-top: 20px;
+  }
   
 }

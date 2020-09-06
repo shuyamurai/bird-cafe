@@ -9,31 +9,32 @@
   align-items: center;
 }
 
+
+.footer-groupe-list{
+  display: flex;
+  justify-content: center;
+}
+
 .toricafe-icon-footer{
   width:150px;
-  text-align: center;
   border-radius: 50%;
   margin: 20px auto;
 }
 
 .footer-copyright{
+  display: flex;
   font-size: 15px;
-  padding-top: 70px; 
+  align-items: flex-end;
 }
 
 
-@media screen and(max-width:767px){
 
- .toricafe-icon-footer{
-   margin-top: 150px;
-   margin-right: 300px;
- }
-  
-.footer-copyright{
-  margin: 0 auto;
-}
+@media  (max-width:767px){
+  .footer-groupe-list{
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 70px;
+  }
  
-
-
 
 }
