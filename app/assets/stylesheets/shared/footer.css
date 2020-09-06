@@ -22,11 +22,16 @@
 }
 
 
-@media  (max-width:767px){
+@media screen and(max-width:767px){
 
- 
+ .toricafe-icon-footer{
+   margin-top: 150px;
+   margin-right: 300px;
+ }
   
-
+.footer-copyright{
+  margin: 0 auto;
+}
  
 
 
