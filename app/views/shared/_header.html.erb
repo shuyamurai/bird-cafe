@@ -1,26 +1,33 @@
 <header class='top-page-header'>
   
-    <div class='search-bar-contents'>
-      <%= link_to image_tag("toricafe.png", class:"toricafe-icon"), "/" %>
-      
+  <div class="container">
+    <div class="row">
+    <div class="col-lg-12 col-xs-12">
+    
+        <div class='search-bar-contents'>
+          <%= link_to image_tag("toricafe.png", class:"toricafe-icon"), "/" %>
+          
 
-      <%= form_with(url: search_items_path, local: true, method: :get, class: "search-form-header") do |form| %>
-        <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input-header" %>
-        <%= form.submit "検索", class: "search-btn-header" %>
-      <% end %>
+          <%= form_with(url: search_items_path, local: true, method: :get, class: "search-form-header") do |form| %>
+            <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input-header" %>
+            <%= form.submit "検索", class: "search-btn-header" %>
+          <% end %>
 
+        </div>
+        <div class='nav'>
+          <ul class='lists-right-header'>
+            <% if user_signed_in? %>
+              <li><%= link_to current_user.name, "#", class: "user-nickname" %></li> 
+              <li><%= link_to 'ログアウト',  destroy_user_session_path , method: :delete, class: "logout" %></li>  
+            <% else %>
+                <li><%= link_to 'ログイン', user_session_path , method: :post, class: "login" %></li>
+                <li><%= link_to '新規登録', new_user_registration_path , method: :get, class: "sign-up" %></li>
+            <% end %>
+          </ul>
+        </div>
+       </div> 
     </div>
-    <div class='nav'>
-      <ul class='lists-right-header'>
-        <% if user_signed_in? %>
-          <li><%= link_to current_user.name, "#", class: "user-nickname" %></li> 
-          <li><%= link_to 'ログアウト',  destroy_user_session_path , method: :delete, class: "logout" %></li>  
-        <% else %>
-            <li><%= link_to 'ログイン', user_session_path , method: :post, class: "login" %></li>
-            <li><%= link_to '新規登録', new_user_registration_path , method: :get, class: "sign-up" %></li>
-        <% end %>
-      </ul>
-    </div>
+  </div>
 
 
 

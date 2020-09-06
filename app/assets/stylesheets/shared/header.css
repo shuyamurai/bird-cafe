@@ -5,7 +5,7 @@
 
 .top-page-header {
   width: 100%;
-  padding: 2vh 15vw;
+  
   display: flex;
   flex-direction: column;
   background-color:#cbedff;
@@ -23,31 +23,6 @@
   border-radius: 50%;
 }
 
-/* .search-form-header {
-  width: 65vw;
-  height: 5vh;
-  display: flex;
-  margin-bottom: 5px;
-}
-
-.search-form-header>.input-box {
-  width: 100%;
-  height: 5vh;
-  padding-left: 10px;
-}
-
-.search-btn-header {
-  width: 5vh;
-  border: 0;
-  cursor: pointer;
-  background-color: #3ccace;
-  padding: 8px;
-} */
-
-/* .search-icon {
-  width: 10px;
-} */
-
 
 .search-form-header{
   display: flex;
@@ -61,11 +36,6 @@
 .search-btn-header{
   width: 100px;
 }
-
-
-
-
-
 
 
 .nav {
@@ -102,7 +72,7 @@
 
 .login {
   text-decoration: none;
-  line-height: 32px;
+  
   margin-right: 3vw;
   color: #333333;
 }
@@ -113,3 +83,38 @@
 }
 
 
+
+
+
+
+@media  (max-width:767px){
+
+  .search-form-header{
+    width: 100%;
+  }
+  .search-input-header{
+    width: 150px;
+  }
+  
+  .search-btn-header{
+    width: 60%;
+  }
+
+  .toricafe-icon{
+    width: 120px;
+  }
+
+  .nav li{
+    font-size: 10px;
+    
+  }
+
+  header{
+    height: 120px;
+  }
+
+  .top-page-header{
+    padding-top: 20px;
+  }
+  
+}
