@@ -5,7 +5,7 @@
 
 .top-page-header {
   width: 100%;
-  
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   background-color:#cbedff;

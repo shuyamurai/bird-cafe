@@ -9,7 +9,7 @@
 </div>
 
   <div class="box14">
-    <p>かわいい鳥グッズ<br>勉強になる鳥の教科書<br>漫画・写真集<br>鳥に関するものならなんでもOK！</p>
+    <p>かわいい鳥グッズ<br>勉強になる鳥の教科書<br>漫画・写真集<br>鳥に関するものを共有しましょう！</p>
   </div>
 
 
@@ -64,6 +64,8 @@
                     <div id="like_<%=item.id%>">
                       <%= render partial: "likes/like", locals: { item: item } %>
                     </div>
+                  <% else %>
+                  <p>ログインしたら見れます！</p>
                   <% end %>
                 </div>
 
