@@ -16,7 +16,6 @@
 #   end
 # end
 
-
 class LikesController < ApplicationController
   # 受け取ったパラメータのitem_idから商品インスタンスを作成(全てのアクションの前に実行)
   before_action :set_item
@@ -36,11 +35,8 @@ class LikesController < ApplicationController
   end
 
   private
+
   def set_item
     @item = Item.find(params[:item_id])
   end
 end
-
-
-
-
