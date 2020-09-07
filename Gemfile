@@ -66,3 +66,7 @@ group :production do
 end
 
 gem "aws-sdk-s3", require: false
+
+group :development do
+  gem 'rubocop', require: false
+end

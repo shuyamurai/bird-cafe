@@ -2,8 +2,6 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
-
-
   def index
     @items = Item.all.order('created_at DESC')
     @all_ranks = Item.find(Like.group(:item_id).order('count(item_id) desc').limit(3).pluck(:item_id))
@@ -16,7 +14,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      flash[:notice] = "投稿しました"
+      flash[:notice] = '投稿しました'
       redirect_to root_path
     else
       render 'new'
@@ -35,7 +33,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      flash[:notice] = "編集しました"
+      flash[:notice] = '編集しました'
       redirect_to item_path(@item.id)
     else
       render :edit
@@ -44,37 +42,27 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.destroy
-      flash[:notice] = "削除しました"
+      flash[:notice] = '削除しました'
       redirect_to root_path
     else
       render :show
     end
   end
 
-
   def search
     @items = Item.search(params[:keyword])
   end
 
-
-
-
-
   def new_guest
     user = User.find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
-      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
-
-
-  
-
-
   private
+
   def item_params
     params.require(:item).permit(:name, :url, :code, :description).merge(user_id: current_user.id)
   end
@@ -82,8 +70,4 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
-
-
-
 end

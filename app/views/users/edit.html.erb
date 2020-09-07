@@ -30,7 +30,15 @@
                 <%= f.email_field :email %>
               </div>
             </div>
-            <%= f.submit "Update", class: 'Button UserButton' %>
+
+
+            <% if user_signed_in? && current_user.id!= 4 %>
+              <%= f.submit "Update", class: 'Button UserButton' %>
+            <% else %>
+              <div class="box14-guest"><p><i class="fas fa-exclamation-triangle"></i>ゲストユーザー は編集できません</p></div>
+            <% end %>
+
+
           <% end %>
         </div>
       </div>
@@ -41,3 +49,8 @@
 
 
 <%= render "shared/footer" %>
+
+
+
+
+
