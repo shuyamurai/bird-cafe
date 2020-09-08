@@ -15,4 +15,6 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[\w-]{8,128}+\z/i, message: 'Password Include both letters and numbers' }
 end

@@ -36,6 +36,8 @@
 
 
 .main-message-show{
+  display: flex;
+  justify-content: flex-start;
   position: relative;
   margin: 2em 0;
   padding: 0.5em 1em;
