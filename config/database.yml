@@ -52,10 +52,9 @@ test:
 production:
   <<: *default
   database: bird_cafe_production
-  username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  username: <%= ENV['BIRDCAFE_USERNAME'] %>
+  password: <%= ENV['BIRD_CAFE_DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
 
 
-  # username: <%= ENV['BIRDCAFE_USERNAME'] %>
-  # password: <%= ENV['BIRD_CAFE_DATABASE_PASSWORD'] %>
+  
