@@ -57,13 +57,21 @@ test:
 #   password: 24633592
 #   socket: /var/lib/mysql/mysql.sock
 
-production:
-  <<: *default
-  database: bird_cafe_production
-  username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+# production:
+#   <<: *default
+#   database: bird_cafe_production
+#   username: root
+#   password: <%= ENV['DATABASE_PASSWORD'] %>
+#   socket: /var/lib/mysql/mysql.sock
 
 
   # username: <%= ENV['BIRDCAFE_USERNAME'] %>
   # password: <%= ENV['BIRD_CAFE_DATABASE_PASSWORD'] %>
+
+
+production:
+  <<: *default
+  database: bird_cafe_production
+  username: root
+  password: 24633592
+  socket: /var/lib/mysql/mysql.sock
