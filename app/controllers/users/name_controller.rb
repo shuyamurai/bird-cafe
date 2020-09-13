@@ -1,4 +1,4 @@
-class Users::NamesController 
+class Users::NameController < ApplicationController
   before_action :check_guest, only: :create
 
   def check_guest
