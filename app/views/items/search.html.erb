@@ -7,42 +7,55 @@
 
 
 <div class="container">
-  <ul class='item-lists'>
-    <% @items.each do |item| %>
-      <li class='list-groupe'>
-          <%= link_to("/items/#{item.id}") do %>
-          <div class="main-contents">
-            <div class="main-image">
-                <img src="http://images-jp.amazon.com/images/P/<%= item[:code] %>.09.LZZZZZZZ">
-            </div>
-            <div class="content-wrapper">
-              <div class="title">
-                <p><%= link_to(item.name,"/items/#{item.id}") %></p>
+  <div class="row">
+    <ul class='item-lists'>
+      <% @items.each do |item| %>
+      <div class="col-lg-4 col-xs-12">
+        <li class='list-groupe'>
+            <%= link_to("/items/#{item.id}") do %>
+            <div class="main-contents">
+              <div class="main-image">
+                  <img src="http://images-jp.amazon.com/images/P/<%= item[:code] %>.09.LZZZZZZZ">
               </div>
-              <div class="main-message">
-                <span class="box-title">紹介文</span>
-                <p><%= item[:description] %></p>
-              </div>
+              <div class="content-wrapper">
+                <div class="title">
+                  <p><%= link_to(item.name,"/items/#{item.id}") %></p>
+                </div>
+                <div class="main-message">
+                  <span class="box-title">紹介文</span>
+                  <p><%= item[:description] %></p>
+                </div>
 
-              <div class="main-message">
-              <span class="box-title">いいね</span>
-                <% if user_signed_in? %>
-                  <div id="like_<%=item.id%>">
-                    <%= render partial: "likes/like", locals: { item: item } %>
-                  </div>
-                <% end %>
-              </div>
-              
-              <div class="right-container"> 
-                <span class="box-title">投稿者</span>                
-                <p><%= item.user.name %></p>
+
+
+
+                <div class="main-message">
+                <span class="box-title">いいね</span>
+                  <% if user_signed_in? %>
+                    <%#idに「like_アイテムのid」として出力することで、create.js.erbやdestroy.js.erbでidを指定したコードを実行することができる。%>
+                    <div id="like_<%=item.id%>">
+                      <%= render partial: "likes/like", locals: { item: item } %>
+                    </div>
+                  <% else %>
+                  <p>ログインしたら確認できます！</p>
+                  <% end %>
+                </div>
+
+
+                
+                
+                <div class="right-container"> 
+                  <span class="box-title">投稿者</span>                
+                  <p><%= item.user.name %></p>
+                </div>
               </div>
             </div>
-          </div>
-          <% end %>
-      </li>
-    <% end %>
-  </ul>
+            <% end %>
+        </li>
+      </div>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 <%= render "shared/footer" %>
