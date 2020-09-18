@@ -82,7 +82,7 @@
   color: #333333;
 }
 
-.guest-login{
+/* .guest-login{
   margin-right: 280px;
   display: inline-block;
   padding: 0.5em 1em;
@@ -97,7 +97,7 @@
 
 .guest-loginch:hover {
   border: dotted 1px #FFF;
-}
+} */
 
 
 @media  (max-width:767px){
