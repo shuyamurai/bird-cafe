@@ -5,6 +5,12 @@
 <li>・AmazonのURL等情報を投稿時に入力する事で、自動的に商品の画像を表示します。</li>
 <li>・購入ボタンをクリックすることで、自動的にAmazonの該当商品購入ページ遷移します。</li>
 
+# こだわりポイント
+
+<li>・直感的に操作が分かるデザインかつ、鳥をイメージした可愛らしさを重視したデザインの両立</li>
+<li>・WEBアプリケーションの顔となるロゴを自分でデザイン</li>
+<li>・投稿時に画像を用意する必要をなくすため、Amazonの商品画像を自動的に読み込むシステムを導入</li>
+
 ## 🌐 App URL 
 ### https://
 
@@ -23,9 +29,6 @@
     <li>・いいね数ランキング機能</li>
     <li>・サイト内検索機能</li>
     <li>・コメント投稿機能</li>
-    <li>・コメント削除機能</li>
-    <li>・マイページ機能</li>
-    <li>・ダイレクトメッセージ機能</li>
 </ul>
 
 ## 使用技術(本番環境)
@@ -39,31 +42,16 @@
 
 ### バックエンド
 <ul>
-    <li>rails6.0.3.2</li>
+    <li>Ruby on Rails6.0.3.2</li>
 </ul>
 
 ### インフラストラクチャー
 <ul>
     <li>Mysql</li>
-</ul>
-
-### AWS
-<ul>
-    <li>AWS EC2</li>
-    <li>AWS RDS</li>
-    <li>AWS Route53</li>
-</ul>
-
-### その他
-<ul>
-    <li>SSL証明書 Let’s Encrypt</li>
+    <li>AWS</li>
 </ul>
 
 
 
-<form class="search-form" action="#">
-        <input class='input-box' placeholder='キーワードから探す'>
-        <button class="search-button">
-          <%= image_tag "search.png", class:"search-icon" %>
-        </button>
-      </form>
+
+
