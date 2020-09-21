@@ -233,7 +233,7 @@ form input[type="submit"]:hover {
 
 @media  (max-width:767px){
   .box14-comment{
-    width: 350px;
+    width: 300px;
     padding: 0.2em 0.5em;
     margin: 20px auto;
     background: #d6ebff;
