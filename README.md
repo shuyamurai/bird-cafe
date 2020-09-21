@@ -14,8 +14,6 @@
 ## 🌐 App URL 
 ### https://
 
-## 💬 Usage
-`$ git clone https://github.com/shuyamurai/bird-cafe` 
 
 ## 機能概要
 <ul>
